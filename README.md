@@ -4,7 +4,7 @@ This application will provides REST API and static web page for list of countrie
 
 ## Web Link
 
-[WEBC PAGE](http://placementassessment.pythonanywhere.com/countries)<br/>
+[WEB PAGE](http://placementassessment.pythonanywhere.com/countries)<br/>
 [REST API](http://placementassessment.pythonanywhere.com/api/countries)<br />
 
 ## Functions
