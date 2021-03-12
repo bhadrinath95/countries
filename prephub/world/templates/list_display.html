@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="container">
+<br/><h3>{{ topic }}</h3>
+{% if objects %}
+	<ul>
+	{% for object in objects %}
+		{% if "Country" in topic %}
+		<li><a href="{% url 'world:state' country_slug=object.slug %}">{{ object.name }}</a></li>
+		{% elif "States" in topic %}
+		<li><a href="{% url 'world:city' country_slug=object.country.slug state_slug=object.slug %}">{{ object.name }}</a></li>
+		{% else %}
+		<li>{{ object.name }}</li>
+		{% endif %}
+	{% endfor %}
+	</ul>
+{% else%}
+	<p>We are still working on this!</p>
+{% endif %}
+{% if "Country" in topic %}
+
+{% elif "States" in topic %}
+<a href="/countries">Click here for previous page</a>
+{% else %}
+<a href="{% url 'world:state' country_slug=objects.0.state.country.slug %}">Click here for previous page</a>
+{% endif %}
+</div>
+{% endblock %}
