@@ -1,6 +1,6 @@
 # Countries
 
-This application will provides REST API and static web page for list of countries, states and cities
+This application will provides REST API and static web page for list of countries, states and cities in the world.
 
 ## Web Link
 
