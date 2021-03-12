@@ -6,9 +6,7 @@ import json
 import unidecode
 
 class Command(BaseCommand):
-    help = 'Generates Countries'
-    
-
+    help = 'Generates Cities'
     def handle(self, *args, **kwargs):
         PERMITTED_CHARS = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ- " 
         try:
@@ -30,11 +28,8 @@ class Command(BaseCommand):
                             ctys = cities[st]
                             for cty in ctys:
                                 if cty and cty.encode().decode('unicode_escape') != "N/A" and not City.objects.filter(name = "".join(c for c in unidecode.unidecode(cty.encode().decode('unicode_escape')) if c in PERMITTED_CHARS).lower().capitalize().rstrip()).exists():
-                                    try:
-                                        City.objects.create(state = state_obj, name= "".join(c for c in unidecode.unidecode(cty.encode().decode('unicode_escape')) if c in PERMITTED_CHARS).lower().capitalize().rstrip())
-                                        self.stdout.write(self.style.SUCCESS("City '"+"".join(c for c in unidecode.unidecode(cty.encode().decode('unicode_escape')) if c in PERMITTED_CHARS).lower().capitalize().rstrip() +"' is added"))
-                                    except:
-                                        pass
+                                    City.objects.create(state = state_obj, name= "".join(c for c in unidecode.unidecode(cty.encode().decode('unicode_escape')) if c in PERMITTED_CHARS).lower().capitalize().rstrip())
+                                    self.stdout.write(self.style.SUCCESS("City '"+"".join(c for c in unidecode.unidecode(cty.encode().decode('unicode_escape')) if c in PERMITTED_CHARS).lower().capitalize().rstrip() +"' is added"))
                         self.stdout.write(self.style.SUCCESS("Cities are successfully added for "+"".join(c for c in unidecode.unidecode(state.encode().decode('unicode_escape')) if c in PERMITTED_CHARS).lower().capitalize().rstrip()))
         except Exception as err:
             self.stdout.write(self.style.ERROR('Error in creating states. ' % err))

@@ -6,9 +6,7 @@ import json
 import unidecode
 
 class Command(BaseCommand):
-    help = 'Generates Countries'
-   
-
+    help = 'Generates States'
     def handle(self, *args, **kwargs):
         PERMITTED_CHARS = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ- " 
         try:
@@ -21,11 +19,7 @@ class Command(BaseCommand):
                 for state in countries[country]:
                     if state and state.encode().decode('unicode_escape') != "N/A" and not State.objects.filter(name = "".join(c for c in unidecode.unidecode(state.encode().decode('unicode_escape')) if c in PERMITTED_CHARS).lower().capitalize().rstrip()).exists():
                         cty = Country.objects.get(name=country)
-                        
-                        try:
-                            State.objects.create(country = cty, name= "".join(c for c in unidecode.unidecode(state.encode().decode('unicode_escape')) if c in PERMITTED_CHARS).lower().capitalize().rstrip())
-                        except:
-                            pass
+                        State.objects.create(country = cty, name= "".join(c for c in unidecode.unidecode(state.encode().decode('unicode_escape')) if c in PERMITTED_CHARS).lower().capitalize().rstrip())
                         self.stdout.write(self.style.SUCCESS("State '"+"".join(c for c in unidecode.unidecode(state.encode().decode('unicode_escape')) if c in PERMITTED_CHARS).lower().capitalize().rstrip() +"' is added"))
                 self.stdout.write(self.style.SUCCESS("States are successfully added for "+country))
         except Exception as err:

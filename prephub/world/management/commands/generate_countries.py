@@ -6,7 +6,6 @@ import json
 
 class Command(BaseCommand):
     help = 'Generates Countries'
-
     def handle(self, *args, **kwargs):
         try:
             data = geo_plug.all_Country_StateNames()
