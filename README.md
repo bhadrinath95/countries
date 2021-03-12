@@ -9,15 +9,15 @@ This application will provides REST API and static web page for list of countrie
 
 ## Functions
 
-o Created following Django management commands for loading data into database, where we utilized [geosky](https://pypi.org/project/geosky/) package to fetch all city, state and country names,
-• generate_countries
-• generate_states and
-• generate_cities
-o Created Django static pages to list
-• Countries in the world
-• States of the selected country and
-• Cities of the selected state
-o Created Django REST api to list
-• Countries in the world
-• States of the selected country and
-• Cities of the selected state
+o Created following Django management commands for loading data into database, where we utilized [geosky](https://pypi.org/project/geosky/) package to fetch all city, state and country names,<br />
+• generate_countries<br />
+• generate_states and<br />
+• generate_cities<br />
+o Created Django static pages to list<br />
+• Countries in the world<br />
+• States of the selected country and<br />
+• Cities of the selected state<br />
+o Created Django REST api to list<br />
+• Countries in the world<br />
+• States of the selected country and<br />
+• Cities of the selected state<br />
