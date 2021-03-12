@@ -4,7 +4,7 @@ This application will provides REST API and static web page for list of countrie
 
 ## Web Link
 
-[STATIC PAGE](http://placementassessment.pythonanywhere.com/countries)<br/>
+[WEBC PAGE](http://placementassessment.pythonanywhere.com/countries)<br/>
 [REST API](http://placementassessment.pythonanywhere.com/api/countries)<br />
 
 ## Functions
@@ -13,7 +13,7 @@ o Created following Django management commands for loading data into database, w
 • generate_countries<br />
 • generate_states and<br />
 • generate_cities<br /><br />
-o Created Django static pages to list<br />
+o Created Django web pages to list<br />
 • Countries in the world<br />
 • States of the selected country and<br />
 • Cities of the selected state<br /><br />
